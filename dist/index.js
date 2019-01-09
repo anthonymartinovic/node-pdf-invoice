@@ -9,9 +9,9 @@ var TEXT_SIZE = 8;
 var CONTENT_LEFT_PADDING = 50;
 
 function PDFInvoice(_ref) {
-  var company = _ref.company;
-  var customer = _ref.customer;
-  var items = _ref.items;
+  var company = _ref.company,
+      customer = _ref.customer,
+      items = _ref.items;
 
   var date = new Date();
   var charge = {
@@ -100,6 +100,6 @@ function PDFInvoice(_ref) {
   };
 }
 
-PDFInvoice.lang = 'pt_BR';
+PDFInvoice.lang = 'en_US';
 
 module.exports = PDFInvoice;
