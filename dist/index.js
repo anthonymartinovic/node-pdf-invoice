@@ -4,6 +4,7 @@ var pdfKit = require('pdfkit');
 var moment = require('moment');
 var numeral = require('numeral');
 var i18n = require('./i18n');
+var path = require('path');
 
 var TEXT_SIZE = 8;
 var CONTENT_LEFT_PADDING = 50;
@@ -42,9 +43,10 @@ function PDFInvoice(_ref) {
 
   return {
     genHeader: function genHeader() {
-      doc.fontSize(20).text(company.name, CONTENT_LEFT_PADDING, 50);
-
+      var imgPath = path.join(__dirname, '..', 'images', 'logo.png');
       var borderOffset = doc.currentLineHeight() + 70;
+
+      doc.image(imgPath, CONTENT_LEFT_PADDING, 38, { width: 150 });
 
       doc.fontSize(16).fillColor('#cccccc').text(moment().format('MMMM, DD, YYYY'), CONTENT_LEFT_PADDING, 50, {
         align: 'right'
