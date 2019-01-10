@@ -8,7 +8,8 @@ module.exports = {
     chargeFor: 'Billing for: ',
     description: 'Description',
     name: 'Name',
-    quantity: 'Quantity'
+    quantity: 'Quantity',
+    unitCost: 'Unit Cost'
   },
   pt_BR: {
     createdAt: 'Criado em',
@@ -17,6 +18,7 @@ module.exports = {
     chargeFor: 'Cobrança para: ',
     description: 'Descrição',
     name: 'Nome',
-    quantity: 'Quantidade'
+    quantity: 'Quantidade',
+    unitCost: 'Unit Cost'
   }
 };

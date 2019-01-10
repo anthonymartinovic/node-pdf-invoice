@@ -14,9 +14,9 @@ const document = generator({
     email: 'raque@gmail.com',
   },
   items: [
-    {amount: 50.0, name: 'XYZ', description: 'Lorem ipsum dollor sit amet', quantity: 12},
-    {amount: 12.0, name: 'ABC', description: 'Lorem ipsum dollor sit amet', quantity: 12},
-    {amount: 127.72, name: 'DFE', description: 'Lorem ipsum dollor sit amet', quantity: 12},
+    { name: 'XYZ', description: 'Lorem ipsum dollor sit amet, Lorem ipsum dollor sit amet, Lorem ipsum dollor sit amet, Lorem ipsum dollor sit amet, Lorem ipsum dollor sit amet, Lorem ipsum dollor sit amet', unitCost: 4.0, quantity: 12 },
+    { name: 'ABC', description: 'Lorem ipsum dollor sit amet', unitCost: 1.0, quantity: 12 },
+    { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 12 },
   ],
 })
 

@@ -13,6 +13,12 @@ function PDFInvoice(_ref) {
       customer = _ref.customer,
       items = _ref.items;
 
+  items.map(function (item) {
+    return Object.assign(item, {
+      amount: item.unitCost * item.quantity
+    });
+  });
+
   var date = new Date();
   var charge = {
     createdAt: date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear(),
@@ -31,7 +37,7 @@ function PDFInvoice(_ref) {
   var table = {
     x: CONTENT_LEFT_PADDING,
     y: 200,
-    inc: 150
+    inc: 110
   };
 
   return {
@@ -63,20 +69,30 @@ function PDFInvoice(_ref) {
       doc.text(customer.name + ' <' + customer.email + '>');
     },
     genTableHeaders: function genTableHeaders() {
-      ['name', 'description', 'unitCost', 'quantity', 'amount'].forEach(function (text, i) {
-        doc.fontSize(TEXT_SIZE).text(translate[text], table.x + i * table.inc, table.y);
+      var _this = this;
+
+      ['name', 'description', 'unitCost', 'quantity', 'amount'].forEach(function (text) {
+        var x = _this.getTablePaddings(text);
+        doc.fontSize(TEXT_SIZE).text(translate[text], x, table.y);
       });
     },
     genTableRow: function genTableRow() {
+      var _this2 = this;
+
       items.map(function (item) {
         return Object.assign({}, item, {
+          unitCost: numeral(item.unitCost).format('$ 0,00.00'),
           amount: numeral(item.amount).format('$ 0,00.00')
         });
       }).forEach(function (item, itemIndex) {
         ['name', 'description', 'unitCost', 'quantity', 'amount'].forEach(function (field, i) {
-          doc.fontSize(TEXT_SIZE).text(item[field], table.x + i * table.inc, table.y + TEXT_SIZE + 6 + itemIndex * 20);
+          var x = _this2.getTablePaddings(field);
+          doc.fontSize(TEXT_SIZE).text(_this2.truncate(item[field]), x, table.y + TEXT_SIZE + 6 + itemIndex * 20);
         });
       });
+    },
+    truncate: function truncate(string) {
+      return string.length > 55 ? string.substring(0, 55) + '...' : string;
     },
     genTableLines: function genTableLines() {
       var offset = doc.currentLineHeight() + 2;
@@ -89,8 +105,23 @@ function PDFInvoice(_ref) {
       this.genTableRow();
       this.genCustomerInfos();
       this.genFooter();
-
       doc.end();
+    },
+    getTablePaddings: function getTablePaddings(value) {
+      return function (value) {
+        switch (value) {
+          case 'name':
+            return 50;
+          case 'description':
+            return 160;
+          case 'unitCost':
+            return 390;
+          case 'quantity':
+            return 450;
+          case 'amount':
+            return 500;
+        }
+      }(value);
     },
 
 
