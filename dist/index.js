@@ -63,7 +63,7 @@ function PDFInvoice(_ref) {
       doc.text(customer.name + ' <' + customer.email + '>');
     },
     genTableHeaders: function genTableHeaders() {
-      ['amount', 'name', 'description', 'quantity'].forEach(function (text, i) {
+      ['name', 'description', 'unitCost', 'quantity', 'amount'].forEach(function (text, i) {
         doc.fontSize(TEXT_SIZE).text(translate[text], table.x + i * table.inc, table.y);
       });
     },
@@ -73,7 +73,7 @@ function PDFInvoice(_ref) {
           amount: numeral(item.amount).format('$ 0,00.00')
         });
       }).forEach(function (item, itemIndex) {
-        ['amount', 'name', 'description', 'quantity'].forEach(function (field, i) {
+        ['name', 'description', 'unitCost', 'quantity', 'amount'].forEach(function (field, i) {
           doc.fontSize(TEXT_SIZE).text(item[field], table.x + i * table.inc, table.y + TEXT_SIZE + 6 + itemIndex * 20);
         });
       });
