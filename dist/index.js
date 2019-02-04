@@ -12,7 +12,11 @@ var CONTENT_LEFT_PADDING = 50;
 function PDFInvoice(_ref) {
   var company = _ref.company,
       customer = _ref.customer,
-      items = _ref.items;
+      items = _ref.items,
+      invoiceNumber = _ref.invoiceNumber,
+      footerText = _ref.footerText,
+      _ref$customDate = _ref.customDate,
+      customDate = _ref$customDate === undefined ? undefined : _ref$customDate;
 
   items.map(function (item) {
     return Object.assign(item, {
@@ -46,9 +50,13 @@ function PDFInvoice(_ref) {
       var imgPath = path.join(__dirname, '..', 'images', 'logo.png');
       var borderOffset = doc.currentLineHeight() + 70;
 
-      doc.image(imgPath, CONTENT_LEFT_PADDING, 38, { width: 150 });
+      doc.image(imgPath, CONTENT_LEFT_PADDING, 40, { width: 150 });
 
-      doc.fontSize(16).fillColor('#cccccc').text(moment().format('MMMM, DD, YYYY'), CONTENT_LEFT_PADDING, 50, {
+      doc.fontSize(12).fillColor('#888888').text('Invoice number: ' + invoiceNumber, CONTENT_LEFT_PADDING + 10, 120, {
+        align: 'center'
+      });
+
+      doc.fontSize(16).fillColor('#cccccc').text(moment(customDate).format('MMMM DD, YYYY'), CONTENT_LEFT_PADDING, 50, {
         align: 'right'
       }).fillColor('#333333');
 
@@ -59,11 +67,13 @@ function PDFInvoice(_ref) {
 
       doc.fontSize(12).text(company.name, CONTENT_LEFT_PADDING, 450);
 
-      doc.text(company.address);
-      doc.text(company.phone);
-      doc.text(company.email);
+      doc.text('BSB: ' + company.bsb);
+      doc.text('Account number: ' + company.accountNo);
+      doc.text('ACN: ' + company.acn);
 
       doc.fillColor('#333333');
+
+      doc.fontSize(10).fillColor('#000000').text(footerText, CONTENT_LEFT_PADDING, 650);
     },
     genCustomerInfos: function genCustomerInfos() {
       doc.fontSize(TEXT_SIZE).text(translate.chargeFor, CONTENT_LEFT_PADDING, 400);

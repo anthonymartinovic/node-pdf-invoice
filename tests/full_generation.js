@@ -4,10 +4,10 @@ const generator = require('../dist/index')
 
 const document = generator({
   company: {
-    phone: '(99) 9 9999-9999',
-    email: 'company@evilcorp.com',
-    address: 'Av. Companhia, 182, Água Branca, Piauí',
-    name: 'Evil Corp.',
+    name: 'Name',
+    bsb: '123 456',
+    accountNo: '789 012',
+    acn: '345 678 901',
   },
   customer: {
     name: 'Elliot Raque',
@@ -18,6 +18,9 @@ const document = generator({
     { name: 'ABC', description: 'Lorem ipsum dollor sit amet', unitCost: 1.0, quantity: 12 },
     { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 12 },
   ],
+  invoiceNumber: 'INV-00001',
+  footerText: 'Footer Text',
+  customDate: '20190204',
 })
 
 document.generate()
