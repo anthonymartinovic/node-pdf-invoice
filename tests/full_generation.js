@@ -5,9 +5,9 @@ const generator = require('../dist/index')
 const document = generator({
   company: {
     name: 'Name',
+    financialInstitution: 'The Bank',
     bsb: '123 456',
     accountNo: '789 012',
-    acn: '345 678 901',
   },
   customer: {
     name: 'Elliot Raque',

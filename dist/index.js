@@ -62,23 +62,24 @@ function PDFInvoice(_ref) {
 
       doc.strokeColor('#cccccc').moveTo(CONTENT_LEFT_PADDING, borderOffset).lineTo(divMaxWidth, borderOffset);
     },
-    genFooter: function genFooter() {
-      doc.fillColor('#cccccc');
-
-      doc.fontSize(12).text(company.name, CONTENT_LEFT_PADDING, 450);
-
-      doc.text('BSB: ' + company.bsb);
-      doc.text('Account number: ' + company.accountNo);
-      doc.text('ACN: ' + company.acn);
-
-      doc.fillColor('#333333');
-
-      doc.fontSize(10).fillColor('#000000').text(footerText, CONTENT_LEFT_PADDING, 650);
-    },
     genCustomerInfos: function genCustomerInfos() {
-      doc.fontSize(TEXT_SIZE).text(translate.chargeFor, CONTENT_LEFT_PADDING, 400);
+      doc.fontSize(10).text(translate.chargeFor, CONTENT_LEFT_PADDING, 610);
 
       doc.text(customer.name + ' <' + customer.email + '>');
+    },
+    genFooter: function genFooter() {
+      doc.fontSize(13).fillColor('#444444').text('Please make all bank transfers to:', CONTENT_LEFT_PADDING, 670);
+
+      doc.fontSize(11).fillColor('#222222').text('-   Gaming Trader', CONTENT_LEFT_PADDING + 24, 685);
+
+      doc.fontSize(13).fillColor('#444444').text('Bank Details: ', CONTENT_LEFT_PADDING, 710);
+
+      doc.fontSize(11).fillColor('#222222').text('-   ' + company.financialInstitution, CONTENT_LEFT_PADDING + 24, 725);
+
+      doc.text('-   BSB: ' + company.bsb);
+      doc.text('-   Account number: ' + company.accountNo);
+
+      doc.fontSize(10).fillColor('#000000').text(footerText, CONTENT_LEFT_PADDING, 780);
     },
     genTableHeaders: function genTableHeaders() {
       var _this = this;
