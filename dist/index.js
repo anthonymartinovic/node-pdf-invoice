@@ -96,7 +96,7 @@ function PDFInvoice(_ref) {
         totalAmount = totalAmount += numeral(item.amount).value();
       });
 
-      doc.text('Subtotal', CONTENT_LEFT_PADDING + 358, finalRowOffset + 2).text('GST', CONTENT_LEFT_PADDING + 358, finalRowOffset + 22).text('Total', CONTENT_LEFT_PADDING + 358, finalRowOffset + 42).text(numeral(totalAmount).format('$ 0,00.00'), CONTENT_LEFT_PADDING + 430, finalRowOffset + 42);
+      doc.text('Subtotal', CONTENT_LEFT_PADDING + 358, finalRowOffset + 2).text(numeral(totalAmount).format('$ 0,00.00'), CONTENT_LEFT_PADDING + 430, finalRowOffset + 2).text('GST', CONTENT_LEFT_PADDING + 358, finalRowOffset + 22).text(numeral(totalAmount * 0.1).format('$ 0,00.00'), CONTENT_LEFT_PADDING + 430, finalRowOffset + 22).text('Total', CONTENT_LEFT_PADDING + 358, finalRowOffset + 42).text(numeral(totalAmount * 1.1).format('$ 0,00.00'), CONTENT_LEFT_PADDING + 430, finalRowOffset + 42);
 
       doc.rect(CONTENT_LEFT_PADDING + 428, finalRowOffset - 5, 70, 20).rect(CONTENT_LEFT_PADDING + 428, finalRowOffset + 15, 70, 20).rect(CONTENT_LEFT_PADDING + 428, finalRowOffset + 35, 70, 20).lineWidth(0.4).stroke();
     },
