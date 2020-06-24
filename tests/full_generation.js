@@ -21,7 +21,7 @@ const document = generator({
     { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 12 },
     { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 12 },
     { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 12 },
-    { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 12 },
+    { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 1 },
     { name: 'DFE', description: 'Lorem ipsum dollor sit amet', unitCost: 1043, quantity: 12 },
   ],
   invoiceNumber: 'INV-00001',
