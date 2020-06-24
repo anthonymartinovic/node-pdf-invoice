@@ -8,7 +8,7 @@ module.exports = {
     chargeFor: 'Billing for: ',
     description: 'Description',
     name: 'Name',
-    quantity: 'Quantity',
+    quantity: 'Qty',
     unitCost: 'Unit Cost'
   },
   pt_BR: {
