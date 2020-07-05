@@ -63,7 +63,7 @@ function PDFInvoice(_ref) {
     },
     genFooter: function genFooter() {
       var startYOffset = 600;
-      doc.font('Helvetica-BoldOblique').fontSize(8).fillColor('#222222').text('Please pay invoices to the following account', CONTENT_LEFT_PADDING, startYOffset, { align: 'center' }).text('King Gaming Technology Pty Ltd', CONTENT_LEFT_PADDING, startYOffset + 14, { align: 'center' }).text('Westpac', CONTENT_LEFT_PADDING, startYOffset + 28, { align: 'center' }).text('BSB: 032-250', CONTENT_LEFT_PADDING, startYOffset + 42, { align: 'center' }).text('Account no: 442-828', CONTENT_LEFT_PADDING, startYOffset + 56, { align: 'center' }).text('All invoices must be paid within 7 days', CONTENT_LEFT_PADDING, startYOffset + 70, { align: 'center' });
+      doc.font('Helvetica-BoldOblique').fontSize(8).fillColor('#222222').text('Please pay invoices to the following account', CONTENT_LEFT_PADDING, startYOffset, { align: 'center' }).text('King Gaming Technology Pty Ltd', CONTENT_LEFT_PADDING, startYOffset + 14, { align: 'center' }).text('ANZ', CONTENT_LEFT_PADDING, startYOffset + 28, { align: 'center' }).text('BSB: 012-372', CONTENT_LEFT_PADDING, startYOffset + 42, { align: 'center' }).text('Account no: 475491966', CONTENT_LEFT_PADDING, startYOffset + 56, { align: 'center' }).text('All invoices must be paid within 7 days', CONTENT_LEFT_PADDING, startYOffset + 70, { align: 'center' });
     },
     genTableHeaders: function genTableHeaders() {
       var _this = this;
